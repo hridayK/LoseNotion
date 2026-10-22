@@ -1,0 +1,9 @@
+[Unit]
+Description=LoseNotion reminder notifications
+
+[Service]
+ExecStart=%h/.local/bin/losenotion reminders
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

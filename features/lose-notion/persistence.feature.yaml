@@ -1,0 +1,18 @@
+feature:
+  name: persistence
+  product: lose-notion
+  description: Todos are kept between runs of the app.
+
+components:
+  SAVE:
+    requirements:
+      1: Todos, including deleted todos, are restored when the app is launched again
+      2: Every change is saved as soon as it is made, so quitting at any time loses nothing
+      3: If the saved data can't be read, the app reports the error and exits without overwriting it
+
+constraints:
+  ENG:
+    description: Under-the-hood requirements
+    requirements:
+      1: Data is stored as JSON in $LOSENOTION_DATA_DIR if set, otherwise $XDG_DATA_HOME/losenotion, otherwise ~/.local/share/losenotion
+      2: Files are written atomically (temp file, then rename), so a reader never sees a half-written file

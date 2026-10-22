@@ -1,0 +1,30 @@
+feature:
+  name: reminders
+  product: lose-notion
+  description: Due dates and reminders for todos, delivered as OS-native notifications.
+
+components:
+  DUE:
+    requirements:
+      1: The user can set a due date and time on a todo
+      2: The user can change or clear a todo's due date
+      3: A todo with a due date shows it in the list
+
+  REMIND:
+    requirements:
+      1: The user can add one or more reminders to a todo, each at a chosen date and time
+      2: The user can remove a reminder
+      3: When a reminder's time arrives, the user gets an OS-native notification showing the todo's text
+      4: Reminders fire even when the app is not open
+      5: Reminders for a done or deleted todo do not fire
+
+constraints:
+  ENG:
+    description: Under-the-hood requirements
+    requirements:
+      1: Due dates and reminders are saved between runs
+      1-note: Provided by the persistence feature
+      2: Reminders are sent by a separate background process (`losenotion reminders`), so they don't depend on the TUI being open
+      3: Each reminder fires once
+      3-note: Reminders that came due while the background process was stopped fire when it next starts
+      4: Notifications use notify-send on Linux and osascript on macOS

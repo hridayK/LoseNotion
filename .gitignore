@@ -30,3 +30,7 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+
+# Build output (go build names it after the module; CLAUDE.md uses -o losenotion)
+/LoseNotion
+/losenotion
