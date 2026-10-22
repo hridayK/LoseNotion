@@ -5,9 +5,7 @@ import (
 )
 
 func main() {
-	p := tea.NewProgram(
-		newSimplePage("This app is under construction"),
-	)
+	p := tea.NewProgram(newTodoList())
 	if _, err := p.Run(); err != nil {
 		panic(err)
 	}
