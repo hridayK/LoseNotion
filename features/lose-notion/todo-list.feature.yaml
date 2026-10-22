@@ -1,0 +1,44 @@
+feature:
+  name: todo-list
+  product: lose-notion
+  description: View and manage a list of todos in the terminal UI.
+
+components:
+  LIST:
+    requirements:
+      1: On launch, the app shows the list of todos
+      2: When there are no todos, the app shows an empty-state message instead of a list
+      3: The user can move a selection up and down through the list
+      4: Each todo shows whether it is done
+
+  ADD:
+    requirements:
+      1: The user can add a todo by typing its text and confirming; it appears in the list as not done
+      2: The user can cancel adding, and no todo is created
+      3: Confirming empty or whitespace-only text does not create a todo
+
+  COMPLETE:
+    requirements:
+      1: The user can mark the selected todo as done
+      2: The user can mark a done todo as not done again
+
+  DELETE:
+    requirements:
+      1: The user can delete the selected todo
+      2: Deleting moves the todo to a separate list of deleted todos
+      2-1: The user can view the deleted todos
+      2-2: The user can restore a deleted todo to the list
+      2-3: The user can permanently delete a deleted todo
+
+  QUIT:
+    requirements:
+      1: The user can quit from the list view
+      2: Ctrl+C quits from any view, including while adding a todo
+
+constraints:
+  ENG:
+    description: Under-the-hood requirements
+    requirements:
+      1: List state lives in the Bubble Tea model, so behavior can be unit-tested by sending messages to Update without a terminal
+      2: Todos are held in memory only
+      2-note: Saving todos between runs is a separate feature
