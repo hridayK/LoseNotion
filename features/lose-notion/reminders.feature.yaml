@@ -23,4 +23,8 @@ constraints:
     description: Under-the-hood requirements
     requirements:
       1: Due dates and reminders are saved between runs
-      1-note: Depends on the persistence feature, which is not specced yet
+      1-note: Provided by the persistence feature
+      2: Reminders are sent by a separate background process (`losenotion reminders`), so they don't depend on the TUI being open
+      3: Each reminder fires once
+      3-note: Reminders that came due while the background process was stopped fire when it next starts
+      4: Notifications use notify-send on Linux and osascript on macOS

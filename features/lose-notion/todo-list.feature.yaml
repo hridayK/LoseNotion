@@ -40,5 +40,7 @@ constraints:
     description: Under-the-hood requirements
     requirements:
       1: List state lives in the Bubble Tea model, so behavior can be unit-tested by sending messages to Update without a terminal
-      2: Todos are held in memory only
-      2-note: Saving todos between runs is a separate feature
+      2:
+        requirement: Todos are held in memory only
+        deprecated: true
+      2-note: Superseded by the persistence feature, which saves todos between runs
